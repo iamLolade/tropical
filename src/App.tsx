@@ -19,7 +19,7 @@ function App() {
   }
 
   const handleSubmit =  async(e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
+      // e.preventDefault();
 
       const response = await fetch("https://ok-starter.herokuapp.com/fruit", {
         method: "POST",
