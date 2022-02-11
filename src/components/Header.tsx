@@ -7,7 +7,7 @@ const Header = ({data, handleChange, handleSubmit}: HeaderProps):JSX.Element => 
         <header>
            <form className="form" onSubmit={()=>handleSubmit}>
                 <fieldset>
-                    <input type="text" name="fruit" id="fruit" value={data.fruit} onChange={handleChange} autoComplete="false" required/>
+                    <input type="text" name="fruit" id="fruit" value={data.fruit} onChange={handleChange}  required={true}/>
                 </fieldset>
                 <button type="submit"
                     onClick={handleSubmit}

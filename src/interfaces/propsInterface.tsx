@@ -15,7 +15,7 @@ export type FetchedData = RetrieveData[]
 export interface HeaderProps {
     data:Data,
     handleChange:(e:React.ChangeEvent<HTMLInputElement>)=> void,
-    handleSubmit: (e:React.MouseEvent<HTMLButtonElement>) => Promise<void>
+    handleSubmit: (e: React.FormEvent) => Promise<void>
 }
 
 export interface MainProps {
