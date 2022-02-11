@@ -9,6 +9,7 @@ import { Data, FetchedData } from "./interfaces/propsInterface";
 function App() {
   const [data, setData] = useState<Data>({ fruit: "" });
   const [resolvedData, setResolvedData] = useState<FetchedData>([]);
+  const [isClicked, setIsClicked] = useState<boolean>(false)
 
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const name = e.currentTarget.name
@@ -28,6 +29,13 @@ function App() {
       setData({fruit:''})
   }
 
+  const handleDelete = async (id:string)=>{
+    const response = await fetch(`https://ok-starter.herokuapp.com/${id}/fruit`, {
+      method: "DELETE",  
+    })
+    setIsClicked(!isClicked)
+  }
+
   const handleFetch = async() => {
     const response = await fetch("https://ok-starter.herokuapp.com/fruit");
     const result = await response.json()
@@ -40,7 +48,7 @@ function App() {
       <Navbar />
       <div className="App">
         <Header data={data} handleChange={handleChange} handleSubmit={handleSubmit}/>
-        <Main resolvedData={resolvedData} handleFetch={handleFetch} data={data}/>
+        <Main resolvedData={resolvedData} handleFetch={handleFetch} data={data} handleDelete={handleDelete} isClicked={isClicked}/>
       </div>
       <Footer />
     </>

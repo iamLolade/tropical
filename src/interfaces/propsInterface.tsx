@@ -21,5 +21,7 @@ export interface HeaderProps {
 export interface MainProps {
     resolvedData: Data[],
     handleFetch:()=> Promise<void>,
-    data: Data
+    data: Data,
+    handleDelete:(id:string)=>Promise<void>,
+    isClicked: boolean
 }
